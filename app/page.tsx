@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { HardHatIcon as Helmet, TelescopeIcon as Binoculars, Briefcase } from "lucide-react"
 
