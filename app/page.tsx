@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { HardHatIcon as Helmet, TelescopeIcon as Binoculars, Briefcase } from "lucide-react"
+import { TeamMemberImage } from "@/components/TeamMemberImage"
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState("intro")
@@ -40,11 +41,11 @@ export default function Home() {
   ]
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24 bg-background text-foreground overflow-hidden">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm">
-        <h1 className="text-4xl font-bold mb-8 text-primary">The Trenchmen</h1>
-        <nav className="mb-8">
-          <ul className="flex space-x-4">
+    <main className="flex min-h-screen flex-col items-center p-3 sm:p-6 md:p-12 lg:p-16 bg-background text-foreground overflow-hidden">
+      <div className="z-10 w-full max-w-[95%] sm:max-w-[90%] md:max-w-5xl items-center justify-between font-mono text-sm">
+        <h1 className="text-3xl sm:text-4xl font-bold mb-4 sm:mb-8 text-primary text-center sm:text-left">The Trenchmen</h1>
+        <nav className="mb-4 sm:mb-8 overflow-x-auto">
+          <ul className="flex space-x-2 sm:space-x-4 min-w-max">
             <li>
               <button
                 onClick={() => setActiveSection("intro")}
@@ -93,13 +94,13 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.5 }}
-              className="space-y-6"
+              className="space-y-4 sm:space-y-6"
             >
-              <h2 className="text-2xl font-semibold">Solving Problems for Early-Stage Startups</h2>
-              <p className="text-muted-foreground">
+              <h2 className="text-xl sm:text-2xl font-semibold">Solving Problems for Early-Stage Startups</h2>
+              <p className="text-sm sm:text-base text-muted-foreground">
                 We dive into the trenches with you, solving complex challenges in product, operations, and sales.
               </p>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
                 <div className="bg-secondary p-4 rounded-lg">
                   <Helmet className="w-8 h-8 mb-2 text-primary" />
                   <h3 className="font-semibold mb-2">Product Strategy</h3>
@@ -126,16 +127,16 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.5 }}
-              className="space-y-6"
+              className="space-y-4 sm:space-y-6"
             >
-              <h2 className="text-2xl font-semibold">Meet The Trenchmen</h2>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <h2 className="text-xl sm:text-2xl font-semibold">Meet The Trenchmen</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
                 {teamMembers.map((member, index) => (
                   <div key={index} className="bg-secondary p-4 rounded-lg text-center">
-                    <img
-                      src={member.image || "/placeholder.svg"}
+                    <TeamMemberImage
+                      src={member.image}
                       alt={member.name}
-                      className="w-24 h-24 rounded-full mx-auto mb-4"
+                      className="w-20 h-20 sm:w-24 sm:h-24 mx-auto mb-4"
                     />
                     <h3 className="font-semibold">{member.name}</h3>
                     <p className="text-sm text-muted-foreground">{member.role}</p>
